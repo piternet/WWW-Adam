@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Strona glowna</title>
+</head>
+<body>
+	<h1> Najnowsze posty na naszej stronie </h1>
+	<div>
+		{% for post in posts %}
+			<div>
+				<h2>{{ post.title }} </h2>
+				<h4>Opublikowany {{ post.publish_date }} przez {{ post.user.username }}</h4>
+				<p> {{ post.content }} </p>
+			</div>
+		{% endfor %}
+	</div>
+
+</body>
+</html>
