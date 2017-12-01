@@ -14,3 +14,6 @@ class Post(models.Model):
 
 	class Meta:
 		ordering = ['-publish_date', 'title']
+
+class Tag(models.Model):
+	name = models.CharField(max_length=200)
