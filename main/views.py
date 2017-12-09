@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Post
+from .models import Post, Tag
 
 def index(request):
 	posts = Post.objects.all()
@@ -8,3 +8,10 @@ def index(request):
 		'posts': posts
 	}
 	return render(request, 'main/index.html', context)
+
+def tags(request):
+	tags = Tag.objects.all()
+	context = {
+		'tag': tags
+	}
+	return render(request, 'main/tags.html', context)
