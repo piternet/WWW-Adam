@@ -4,6 +4,21 @@
 	<title>Strona glowna</title>
 </head>
 <body>
+	<div style="float: right; border: 1px solid black; margin-right: 50px; padding: 10px;">
+		{% if user.is_authenticated %}
+			<p> Witaj, {{ user.username }}!</p>
+		{% endif %}
+		<ul>
+			
+			<li><a href="{% url 'index' %}">Strona glowna</a></li>
+			{% if not user.is_authenticated %}
+				<li><a href="{% url 'login' %}">Login</a></li>
+			{% else %}
+				<li><a href="{% url 'add_new_post' %}">Dodaj nowy post</a></li>
+				<li><a href="{% url 'logout' %}">Wyloguj sie</a></li>
+			{% endif %}
+		</ul>
+	</div>
 	<h1> Najnowsze posty na naszej stronie </h1>
 	<div>
 		{% for post in posts %}
@@ -11,9 +26,14 @@
 				<h2>{{ post.title }} </h2>
 				<h4>Opublikowany {{ post.publish_date }} przez {{ post.user.username }}</h4>
 				<p> {{ post.content }} </p>
+				<p> Tagi: 
+					{% for t in post.tag.all %}
+						{{ t.name }} 
+					{% endfor %}
+				</p>
 			</div>
 		{% endfor %}
 	</div>
-	<a href="http://localhost:8000/tags/">Lista tagow</a>
+	<a href="{% url 'tags' %}">Lista tagow</a>
 </body>
 </html>
