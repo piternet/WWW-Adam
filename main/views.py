@@ -17,9 +17,13 @@ def tags(request):
 	return render(request, 'main/tags.html', context)
 
 def tag_view(request, name):
+	tags = Tag.objects.all()
+	posts = Post.objects.all()
+	context = {'t':name}
 	# 1. pobrac z bazy danych tag o nazwie name
 	# 2. pobrac z bazy danych wszystkie posty, ktore maja naszego taga
 		# Post.objects.filter()
 	# 3. zrobic szablon dla taga
 	# 4. przekazac do funkcji render ten szablon i odpowiedni context
-	return HttpResponse(name)
+	return render(request, 'main/tag1.html', context)
+
