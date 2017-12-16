@@ -18,8 +18,9 @@ def tags(request):
 
 def tag_view(request, name):
 	tags = Tag.objects.all()
-	posts = Post.objects.all()
-	context = {'t':name}
+	posts = Post.objects.filter(tag__name='#'+name)
+
+	context = {'posts':posts}
 	# 1. pobrac z bazy danych tag o nazwie name
 	# 2. pobrac z bazy danych wszystkie posty, ktore maja naszego taga
 		# Post.objects.filter()
