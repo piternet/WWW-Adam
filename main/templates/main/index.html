@@ -26,6 +26,9 @@
 				<h2>{{ post.title }} </h2>
 				<h4>Opublikowany {{ post.publish_date }} przez {{ post.user.username }}</h4>
 				<p> {{ post.content|truncatechars:200 }} </p>
+                {% if post.content|length > 200 %}
+                <a href="{% url 'one_post' post.id %}">Czytaj dalej</a>
+                {% endif %}
 				<p> Tagi: 
 					{% for t in post.tag.all %}
 						{{ t.name }} 
@@ -34,6 +37,8 @@
 			</div>
 		{% endfor %}
 	</div>
+    <br>
+
 	<a href="{% url 'tags' %}">Lista tagow</a>
 </body>
 </html>
