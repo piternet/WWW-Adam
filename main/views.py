@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 from .models import Post, Tag
 
 def index(request):
@@ -26,4 +27,9 @@ def one_post(request, id):
 	post1 = Post.objects.get(id=id) #czemu nie dziala filter tutaj
 	context = {'post1':post1, 'id':id}
 	return render(request, 'main/onepost.html',context)
+
+def user_info(request, user):
+	users = User.objects.get(username=user)
+	context =  {'users':users, 'user':user}
+	return render(request, 'main/userinfo.html',context)
 
