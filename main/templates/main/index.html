@@ -24,7 +24,7 @@
 		{% for post in posts %}
 			<div>
 				<h2>{{ post.title }} </h2>
-				<h4>Opublikowany {{ post.publish_date }} przez {{ post.user.username }}</h4>
+				<h4>Opublikowany {{ post.publish_date }} przez <a href="{% url 'user_info' post.user.username %}"> {{ post.user.username }}</a></h4>
 				<p> {{ post.content|truncatechars:200 }} </p>
                 {% if post.content|length > 200 %}
                 <a href="{% url 'one_post' post.id %}">Czytaj dalej</a>
