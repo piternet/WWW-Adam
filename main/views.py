@@ -1,7 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from .models import Post, Tag
+from .forms import PostForm
+from datetime import datetime
 
 def index(request):
 	posts = Post.objects.all()
@@ -33,3 +35,21 @@ def user_info(request, user):
 	context =  {'users':users, 'user':user}
 	return render(request, 'main/userinfo.html',context)
 
+def add_new_post(request):
+	if request.method == 'POST':
+		form = PostForm(request.POST)
+		if form.is_valid():
+			tags = form.cleaned_data['tag']
+			post = form.save(commit=False)
+			post.user = request.user
+			post.publish_date = datetime.now()
+			post.save()
+			post.tag.add(*tags)
+			post.save()
+			return HttpResponseRedirect('/')
+	else:
+		form = PostForm()
+		context = {
+			"form": form
+		}
+		return render(request, 'main/addnewpost.html', context)
