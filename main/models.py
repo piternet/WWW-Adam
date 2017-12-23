@@ -25,4 +25,9 @@ class Post(models.Model):
 		ordering = ['-publish_date', 'title']
 
 
+class Comment(models.Model):
+	content = models.CharField(max_length= 300, blank=True, default='')
+	post = models.ForeignKey(Post)
+
+
 
