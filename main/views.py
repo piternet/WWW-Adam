@@ -4,9 +4,16 @@ from django.contrib.auth.models import User
 from .models import Post, Tag
 from .forms import PostForm
 from datetime import datetime
+from django.core.paginator import Paginator, PageNotAnInteger
 
 def index(request):
 	posts = Post.objects.all()
+	paginator = Paginator(posts,2) #ilosc artykulow na stronie
+	page = request.GET.get('page')
+	try:
+		posts = paginator.page(page)
+	except PageNotAnInteger:
+		posts = paginator.page(1)
 	context = {
 		'posts': posts
 	}
