@@ -35,6 +35,13 @@
 					{% endfor %}
 				</p>
 			</div>
+        <div>Komentarze<br>
+                {% for comment in comments %}
+                    {% if post.id == comment.post.id %}
+                        -{{comment.content}} <br>
+                    {% endif %}
+                {% endfor %}
+        </div>
 		{% endfor %}
 	</div>
     <br>
