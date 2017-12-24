@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from .models import Post, Tag, Comment
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 from datetime import datetime
 from django.core.paginator import Paginator, PageNotAnInteger
 
@@ -43,6 +43,22 @@ def user_info(request, user):
 	users = User.objects.get(username=user)
 	context =  {'users':users, 'user':user}
 	return render(request, 'main/userinfo.html',context)
+
+def add_new_comment(request):
+	if request.method == 'POST':
+		form = CommentForm(request.POST)
+		if form.is_valid():
+			post = form.cleaned_data['post']
+			comment = form.save(commit=False)
+			comment.comment_date = datetime.now()
+			comment.save()
+			return HttpResponseRedirect('/')
+	else:
+		form = CommentForm()
+		context = {
+			"form": form
+		}
+		return render(request, 'main/addcomment.html', context)
 
 def add_new_post(request):
 	if request.method == 'POST':

@@ -28,6 +28,7 @@ class Post(models.Model):
 class Comment(models.Model):
 	content = models.CharField(max_length= 300, blank=True, default='')
 	post = models.ForeignKey(Post)
+	comment_date = models.DateField()
 
 	def __str__(self):
 		return self.content

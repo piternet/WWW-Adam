@@ -35,10 +35,10 @@
 					{% endfor %}
 				</p>
 			</div>
-        <div>Komentarze<br>
+        <div><a href="{% url 'add_new_comment' %}">Komentarz (dodaj)</a><br>
                 {% for comment in comments %}
                     {% if post.id == comment.post.id %}
-                        -{{comment.content}} <br>
+                        <{{comment.comment_date}}> - {{comment.content}} <br>
                     {% endif %}
                 {% endfor %}
         </div>
