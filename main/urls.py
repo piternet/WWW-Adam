@@ -10,7 +10,8 @@ urlpatterns = [
 	url(r'^user/(?P<user>\w+)/$', views.user_info, name='user_info'),
 	url(r'^post/(?P<id>\d+)/$', views.one_post, name='one_post'),
 	url(r'^add_new_post/$', views.add_new_post, name="add_new_post"),
-	url(r'^add_new_comment/$', views.add_new_comment, name="add_new_comment"),
+	url(r'^edit_post/(?P<id>\d+)/$', views.edit_post, name="edit_post"),
+	url(r'^add_new_comment/(?P<id>\d+)/$', views.add_new_comment, name="add_new_comment"),
 	url(r'^login/', login, name='login'),
 	url(r'^logout/', logout, name='logout')
 ]

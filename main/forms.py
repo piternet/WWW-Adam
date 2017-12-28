@@ -16,11 +16,10 @@ class PostForm(forms.ModelForm):
 class CommentForm(forms.ModelForm):
 	class Meta:
 		model = Comment
-		fields = ['content', 'post']
+		fields = ['content']
 		widgets = {
 			'content': forms.Textarea(attrs={'cols': 30 , 'rows': 20})
 		}
 		labels = {
-			'post': 'post',
 			'content': 'Zawartosc'
 		}

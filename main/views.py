@@ -5,11 +5,12 @@ from .models import Post, Tag, Comment
 from .forms import PostForm, CommentForm
 from datetime import datetime
 from django.core.paginator import Paginator, PageNotAnInteger
+from adamsite.settings import POSTS_PER_PAGE
 
 def index(request):
 	posts = Post.objects.all()
 	comments = Comment.objects.all()
-	paginator = Paginator(posts,2) #ilosc artykulow na stronie
+	paginator = Paginator(posts, POSTS_PER_PAGE) #ilosc artykulow na stronie
 	page = request.GET.get('page')
 	try:
 		posts = paginator.page(page)
@@ -44,13 +45,13 @@ def user_info(request, user):
 	context =  {'users':users, 'user':user}
 	return render(request, 'main/userinfo.html',context)
 
-def add_new_comment(request):
+def add_new_comment(request, id):
 	if request.method == 'POST':
 		form = CommentForm(request.POST)
 		if form.is_valid():
-			post = form.cleaned_data['post']
 			comment = form.save(commit=False)
 			comment.comment_date = datetime.now()
+			comment.post = Post.objects.get(id=int(id))
 			comment.save()
 			return HttpResponseRedirect('/')
 	else:
@@ -78,3 +79,27 @@ def add_new_post(request):
 			"form": form
 		}
 		return render(request, 'main/addnewpost.html', context)
+
+def edit_post(request, id):
+	post = Post.objects.get(id=int(id))
+	if request.method == 'POST':
+		form = PostForm(request.POST)
+		if form.is_valid():
+			post.title = form.cleaned_data['title']
+			post.content = form.cleaned_data['content']
+			tag = form.cleaned_data['tag']
+			post.tag.clear()
+			post.tag.add(*tag)
+			post.save()
+			return HttpResponseRedirect('/')
+
+	else:
+		form = PostForm(initial={
+			'title': post.title,
+			'content': post.content,
+			'tag': post.tag.all()
+		})
+		context = {
+			'form': form
+		}
+		return render(request, 'main/editpost.html', context)
