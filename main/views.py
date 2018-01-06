@@ -35,6 +35,12 @@ def tag_view(request, name):
 	context = {'posts':posts, 'name':name}
 	return render(request, 'main/tag1.html', context)
 
+def post_list(request, name):
+	tags = Tag.objects.all()
+	posts = Post.objects.filter(tag__name='#'+name)
+	context = {'posts':posts, 'name':name}
+	return render(request, 'main/post_list.html', context)
+
 def one_post(request, id):
 	post1 = Post.objects.get(id=id) #czemu nie dziala filter tutaj
 	context = {'post1':post1, 'id':id}

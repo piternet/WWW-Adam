@@ -1,11 +1,11 @@
 {% extends 'main/base.html' %}
 
 {% block head %}
-	<title>Strona główna</title>
+	<title>Lista postow</title>
 {% endblock %}
 
 {% block header %}
-	<h1> Najnowsze posty na naszej stronie </h1>
+	<h1>lista postow #{{name}}</h1>
 {% endblock %}
 
 {% block content %}
@@ -25,8 +25,7 @@
                 {% endif %}
 				<p> Tagi: 
 					{% for t in post.tag.all %}
-						<a href="/bytag/{{ t.name|slice:'1:' }}">{{t.name}} </a>
-						<a>, </a>
+						{{ t.name }} 
 					{% endfor %}
 				</p>
 			</div>
@@ -41,17 +40,7 @@
 	</div>
     <br>
 
-<div>
-        {% if posts.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ posts.previous_page_number }}">previous</a>
-        {% endif %}
-            Page {{ posts.number }} of {{ posts.paginator.num_pages }}
-        {% if posts.has_next %}
-            <a href="?page={{ posts.next_page_number }}">next</a>
-            <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-</div>
+
 	<br>
 	<a href="{% url 'tags' %}">Lista tagow</a>
 {% endblock %}

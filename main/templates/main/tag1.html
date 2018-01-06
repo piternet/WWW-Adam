@@ -1,18 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h4>Lista postow z tagiem #{{name}}</h4>
+{% extends 'main/base.html' %}
 
+{% block head %}
+	<title>Lista postow</title>
+{% endblock %}
+
+{% block header %}
+	<h1>Lista postow z tagiem #{{name}}</h1>
+{% endblock %}
+
+{% block content %}
 {% for post in posts %}
 <ul>
     <li>{{post.title}}</li>
-
-
 </ul>
 {% endfor %}
-</body>
-</html>
+{% endblock %}
+
+
+
