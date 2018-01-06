@@ -1,20 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Post {{id}}</title>
-</head>
-<body>
-<h3>Post #{{id}}</h3>
-            <div>
-				<h2>{{ post1.title }} </h2>
-				<h4>Opublikowany {{ post1.publish_date }} przez {{ post1.user.username }}</h4>
-				<p> {{ post1.content }} </p>
-				<p> Tagi:
-					{% for t in post1.tag.all %}
-						{{ t.name }}
-					{% endfor %}
-				</p>
-			</div>
-</body>
-</html>
+{% extends 'main/base.html' %}
+
+{% block head %}
+	<title>Post {{id}}</title>
+{% endblock %}
+
+{% block header %}
+	<h1>Post #{{id}}</h1>
+{% endblock %}
+
+{% block content %}
+
+
+
+<div>
+	<h4>Opublikowany {{ post1.publish_date }} przez {{ post1.user.username }}</h4>
+	<p> {{ post1.content }} </p>
+	<p> Tagi:
+		{% for t in post1.tag.all %}
+			{{ t.name }}
+		{% endfor %}
+	</p>
+</div>
+
+{% endblock %}

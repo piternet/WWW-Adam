@@ -1,17 +1,20 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Lista tagow</title>
-</head>
-<body>
-    <h1> Lista tagow </h1>
-	<div>
-		{% for tag in tag %}
-			<div>
-				<h4><a href="/tag/{{ tag.name|slice:'1:' }}">{{tag.name}} </a></h4>
-			</div>
-		{% endfor %}
-	</div>
+{% extends 'main/base.html' %}
 
-</body>
-</html>
+{% block head %}
+	<title>Lista tagow</title>
+{% endblock %}
+
+{% block header %}
+	<h1>Lista tagow</h1>
+{% endblock %}
+
+{% block content %}
+<div>
+	{% for tag in tag %}
+		<div>
+			<h4><a href="/tag/{{ tag.name|slice:'1:' }}">{{tag.name}} </a></h4>
+		</div>
+	{% endfor %}
+</div>
+
+{% endblock %}
