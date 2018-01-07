@@ -13,6 +13,17 @@ class PostForm(forms.ModelForm):
 			'content': 'Zawartosc'
 		}
 
+class TagForm(forms.ModelForm):
+	class Meta:
+		model = Tag
+		fields = ['name']
+		widgets = {
+			'name': forms.Textarea(attrs={'cols': 30 , 'rows': 1})
+		}
+		labels = {
+			'name': 'Nazwa',
+		}
+
 class CommentForm(forms.ModelForm):
 	class Meta:
 		model = Comment

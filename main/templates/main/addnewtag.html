@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block head %}
+	<title>Dodaj nowy tag</title>
+{% endblock %}
+
+{% block header %}
+	<h2> Dodaj nowy tag</h2>
+{% endblock %}
+
+{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Dodaj</button>
+	</form>
+{% endblock %}

@@ -13,6 +13,7 @@ urlpatterns = [
 	url(r'^add_new_post/$', views.add_new_post, name="add_new_post"),
 	url(r'^edit_post/(?P<id>\d+)/$', views.edit_post, name="edit_post"),
 	url(r'^add_new_comment/(?P<id>\d+)/$', views.add_new_comment, name="add_new_comment"),
+	url(r'^add_new_tag/$', views.add_new_tag, name="add_new_tag"),
 	url(r'^login/', login, name='login'),
 	url(r'^logout/', logout, name='logout')
 ]

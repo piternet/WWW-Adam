@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from .models import Post, Tag, Comment
-from .forms import PostForm, CommentForm
+from .forms import PostForm, CommentForm, TagForm
 from datetime import datetime
 from django.core.paginator import Paginator, PageNotAnInteger
 from adamsite.settings import POSTS_PER_PAGE
@@ -85,6 +85,20 @@ def add_new_post(request):
 			"form": form
 		}
 		return render(request, 'main/addnewpost.html', context)
+
+def add_new_tag(request):
+	if request.method == 'POST':
+		form = TagForm(request.POST)
+		if form.is_valid():
+			tag = form.save(commit=False)
+			tag.save()
+			return HttpResponseRedirect('/')
+	else:
+		form = TagForm()
+		context = {
+			"form": form
+		}
+		return render(request, 'main/addnewtag.html', context)
 
 def edit_post(request, id):
 	post = Post.objects.get(id=int(id))
