@@ -30,7 +30,11 @@
 					{% endfor %}
 				</p>
 			</div>
-        <div><a href="{% url 'add_new_comment' post.id %}">Komentarz (dodaj)</a><br>
+        <div><a href="{% url 'add_new_comment' post.id %}">Komentarz (dodaj)</a>
+			{% if post.user.username == user.username %}
+				<a>   Usun post</a>
+			{% endif %}
+				<br>
                 {% for comment in comments %}
                     {% if post.id == comment.post.id %}
                         <{{comment.comment_date}}> - {{comment.content}} <br>
