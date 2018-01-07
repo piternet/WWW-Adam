@@ -4,38 +4,55 @@
 	<meta charset="utf-8" >
 	{% block head %}
 	{% endblock %}
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'main/base.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 </head>
 <body>
-	<div style="float: right; border: 1px solid black; margin-right: 50px; padding: 10px;">
-		{% if user.is_authenticated %}
-			<p> Witaj, {{ user.username }}!</p>
-		{% endif %}
-		<ul>
-			
-			<li><a href="{% url 'index' %}">Strona glowna</a></li>
-			{% if not user.is_authenticated %}
-				<li><a href="{% url 'login' %}">Login</a></li>
-			{% else %}
-				<li><a href="{% url 'add_new_post' %}">Dodaj nowy post</a></li>
-			{% if user.is_superuser %}
-				<li><a href="{% url 'add_new_tag' %}">Dodaj nowy tag</a></li>
+
+	<div id="logo">
+		<h1>Strona Adama</h1>
+	</div>
+
+	<div id="wrapper">
+
+		<div id="menu">
+			{% if user.is_authenticated %}
+				<p> Witaj, {{ user.username }}!</p>
 			{% endif %}
-				<li><a href="{% url 'logout' %}">Wyloguj sie</a></li>
-			{% endif %}
-		</ul>
+			<ul>
+				
+				<li><a href="{% url 'index' %}">Strona glowna</a></li>
+				{% if not user.is_authenticated %}
+					<li><a href="{% url 'login' %}">Login</a></li>
+				{% else %}
+					<li><a href="{% url 'add_new_post' %}">Dodaj nowy post</a></li>
+				{% if user.is_superuser %}
+					<li><a href="{% url 'add_new_tag' %}">Dodaj nowy tag</a></li>
+				{% endif %}
+					<li><a href="{% url 'logout' %}">Wyloguj sie</a></li>
+				{% endif %}
+			</ul>
+		</div>
+		<div id="contentWrapper">
+			<div id="header">
+				{% block header %}
+				{% endblock %}
+			</div>
+
+			<div id="content">
+				{% block content %}
+				{% endblock %}
+			</div>
+		</div>
+
 	</div>
 
-	<div id="header">
-		{% block header %}
-		{% endblock %}
+	<div id="footer">
+		<p>
+			Copyright by Adam
+		</p>
 	</div>
-
-	<div id="content">
-		{% block content %}
-		{% endblock %}
-	</div>
-	
-
 	
 </body>
 </html>

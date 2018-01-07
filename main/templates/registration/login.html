@@ -1,7 +1,20 @@
-<h1> Login </h1>
+{% extends 'main/base.html' %}
+{% block head %}
+	<title>Login</title>
+{% endblock %}
+
+{% block header %}
+	<h1>Login</h1>
+{% endblock %}
+
+{% block content %}
+
+<!-- Dopisac ze jesli flaga login jest ustawiona, to costam pokazac -->
 
 <form method="post">
 	{% csrf_token %}
 	{{ form.as_p }}
 	<button type="submit">Login</button>
 </form>
+
+{% endblock %}

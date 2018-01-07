@@ -6,6 +6,7 @@ from .forms import PostForm, CommentForm, TagForm
 from datetime import datetime
 from django.core.paginator import Paginator, PageNotAnInteger
 from adamsite.settings import POSTS_PER_PAGE
+from django.contrib.auth.decorators import login_required
 
 def index(request):
 	posts = Post.objects.all()
@@ -46,6 +47,7 @@ def one_post(request, id):
 	context = {'post1':post1, 'id':id}
 	return render(request, 'main/onepost.html',context)
 
+@login_required(login_url='/login/?failed=1')
 def user_info(request, user):
 	users = User.objects.get(username=user)
 	context =  {'users':users, 'user':user}
@@ -67,6 +69,7 @@ def add_new_comment(request, id):
 		}
 		return render(request, 'main/addcomment.html', context)
 
+@login_required(login_url='/login/?failed=1')
 def add_new_post(request):
 	if request.method == 'POST':
 		form = PostForm(request.POST)
