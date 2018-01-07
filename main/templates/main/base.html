@@ -17,7 +17,9 @@
 				<li><a href="{% url 'login' %}">Login</a></li>
 			{% else %}
 				<li><a href="{% url 'add_new_post' %}">Dodaj nowy post</a></li>
+			{% if user.is_superuser %}
 				<li><a href="{% url 'add_new_tag' %}">Dodaj nowy tag</a></li>
+			{% endif %}
 				<li><a href="{% url 'logout' %}">Wyloguj sie</a></li>
 			{% endif %}
 		</ul>
