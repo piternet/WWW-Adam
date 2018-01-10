@@ -1,0 +1,20 @@
+
+
+{% extends 'main/base.html' %}
+
+{% block head %}
+	<title>Usun {{id}}</title>
+{% endblock %}
+
+{% block header %}
+	<h1>Usun #{{id}}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    Jestes pewny ze chcesz usunac post numer {{ id }} ?
+    <input type="submit" value="Tak" />
+    <input type="button" value="Nie" onclick="history.back()">
+</form>
+
+{% endblock %}

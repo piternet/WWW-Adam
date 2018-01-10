@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from .models import Post, Tag, Comment
@@ -7,6 +7,8 @@ from datetime import datetime
 from django.core.paginator import Paginator, PageNotAnInteger
 from adamsite.settings import POSTS_PER_PAGE
 from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import DeleteView
+from django.core.urlresolvers import reverse_lazy
 
 def index(request):
 	posts = Post.objects.all()
@@ -88,6 +90,13 @@ def add_new_post(request):
 			"form": form
 		}
 		return render(request, 'main/addnewpost.html', context)
+
+def remove_post(request,id, template_name='main/confirm_delete_post.html'):
+    post = get_object_or_404(Post, pk=id)
+    if request.method=='POST':
+        post.delete()
+        return redirect('index')
+    return render(request, template_name, {'id':id})
 
 def add_new_tag(request):
 	if request.method == 'POST':
