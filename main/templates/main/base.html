@@ -25,6 +25,7 @@
 				<li><a href="{% url 'index' %}">Strona glowna</a></li>
 				{% if not user.is_authenticated %}
 					<li><a href="{% url 'login' %}">Login</a></li>
+					<li><a href="{% url 'register' %}">Register</a></li>
 				{% else %}
 					<li><a href="{% url 'add_new_post' %}">Dodaj nowy post</a></li>
 				{% if user.is_superuser %}

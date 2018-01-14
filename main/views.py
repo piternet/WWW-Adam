@@ -8,7 +8,8 @@ from django.core.paginator import Paginator, PageNotAnInteger
 from adamsite.settings import POSTS_PER_PAGE
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import DeleteView
-from django.core.urlresolvers import reverse_lazy
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 def index(request):
 	posts = Post.objects.all()
@@ -48,6 +49,17 @@ def one_post(request, id):
 	post1 = Post.objects.get(id=id) #czemu nie dziala filter tutaj
 	context = {'post1':post1, 'id':id}
 	return render(request, 'main/onepost.html',context)
+
+def register(request):
+    if request.method == 'POST':
+        f = UserCreationForm(request.POST)
+        if f.is_valid():
+            f.save()
+            messages.success(request, 'Account created successfully')
+            return redirect('register')
+    else:
+        f = UserCreationForm()
+    return render(request, 'main/register.html', {'form': f})
 
 @login_required(login_url='/login/?failed=1')
 def user_info(request, user):
