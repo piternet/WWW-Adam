@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Tag, Comment
+from .models import Post, Tag, Comment, Profile
 
 class PostForm(forms.ModelForm):
 	class Meta:
@@ -33,4 +33,12 @@ class CommentForm(forms.ModelForm):
 		}
 		labels = {
 			'content': 'Zawartosc'
+		}
+
+class ProfileForm(forms.ModelForm):
+	class Meta:
+		model = Profile
+		fields = ['description', 'avatar']
+		widgets = {
+			'description': forms.Textarea(attrs={'cols': 30 , 'rows': 10})
 		}

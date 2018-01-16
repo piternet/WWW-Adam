@@ -17,5 +17,6 @@ urlpatterns = [
 	url(r'^add_new_tag/$', views.add_new_tag, name="add_new_tag"),
 	url(r'^login/', login, name='login'),
 	url(r'^register/', views.register, name='register'),
-	url(r'^logout/', logout, name='logout')
+	url(r'^logout/', logout, name='logout'),
+	url(r'^edit_profile/$', views.edit_profile, name='edit_profile'),
 ]

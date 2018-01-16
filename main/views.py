@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
-from .models import Post, Tag, Comment
-from .forms import PostForm, CommentForm, TagForm
+from .models import Post, Tag, Comment, Profile
+from .forms import PostForm, CommentForm, TagForm, ProfileForm
 from datetime import datetime
 from django.core.paginator import Paginator, PageNotAnInteger
 from adamsite.settings import POSTS_PER_PAGE
@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import DeleteView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.db.models.signals import post_save
 
 def index(request):
 	posts = Post.objects.all()
@@ -61,12 +62,13 @@ def register(request):
         f = UserCreationForm()
     return render(request, 'main/register.html', {'form': f})
 
-@login_required(login_url='/login/?failed=1')
+@login_required(login_url='/login/')
 def user_info(request, user):
 	users = User.objects.get(username=user)
 	context =  {'users':users, 'user':user}
 	return render(request, 'main/userinfo.html',context)
 
+@login_required(login_url='/login/')
 def add_new_comment(request, id):
 	if request.method == 'POST':
 		form = CommentForm(request.POST)
@@ -103,8 +105,11 @@ def add_new_post(request):
 		}
 		return render(request, 'main/addnewpost.html', context)
 
+@login_required(login_url='/login/')
 def remove_post(request,id, template_name='main/confirm_delete_post.html'):
     post = get_object_or_404(Post, pk=id)
+    if request.user.id != post.user.id:
+    	return redirect('index')
     if request.method=='POST':
         post.delete()
         return redirect('index')
@@ -147,3 +152,30 @@ def edit_post(request, id):
 			'form': form
 		}
 		return render(request, 'main/editpost.html', context)
+
+def edit_profile(request):
+	profile = Profile.objects.get(user=request.user)
+	if request.method == 'POST':
+		form = ProfileForm(request.POST, request.FILES)
+		if form.is_valid():
+			profile.description = form.cleaned_data['description']
+			profile.avatar = form.cleaned_data['avatar']
+			profile.save()
+			return HttpResponseRedirect('/')
+	else:
+		form = ProfileForm(initial={
+			'description': profile.description,
+		})
+		context = {
+			'form': form,
+			'profile': profile
+		}
+		return render(request, 'main/editprofile.html', context)
+
+def create_profile(sender, **kwargs):
+	user = kwargs['instance']
+	if kwargs['created']:
+		profile = Profile(user=user)
+		profile.save()
+
+post_save.connect(create_profile, sender=User)

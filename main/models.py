@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from adamsite.settings import STATIC_URL
 
 
 class Tag(models.Model):
@@ -34,4 +35,7 @@ class Comment(models.Model):
 		return self.content
 
 
-
+class Profile(models.Model):
+	user = models.OneToOneField(User, on_delete=models.CASCADE)
+	description = models.CharField(max_length= 300, blank=True, default='')
+	avatar = models.ImageField(upload_to='main/static/main/imgs/')
