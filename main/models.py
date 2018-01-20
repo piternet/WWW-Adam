@@ -38,4 +38,5 @@ class Comment(models.Model):
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	description = models.CharField(max_length= 300, blank=True, default='')
-	avatar = models.ImageField(upload_to='main/static/main/imgs/')
+	avatar = models.ImageField(upload_to='main/static/main/imgs/', default='', blank=True)
+	city = models.CharField(max_length=100, blank=True, default='')

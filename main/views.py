@@ -160,11 +160,13 @@ def edit_profile(request):
 		if form.is_valid():
 			profile.description = form.cleaned_data['description']
 			profile.avatar = form.cleaned_data['avatar']
+			profile.city = form.cleaned_data['city']
 			profile.save()
 			return HttpResponseRedirect('/')
 	else:
 		form = ProfileForm(initial={
 			'description': profile.description,
+			'city': profile.city,
 		})
 		context = {
 			'form': form,

@@ -38,7 +38,7 @@ class CommentForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
 	class Meta:
 		model = Profile
-		fields = ['description', 'avatar']
+		fields = ['description', 'avatar', 'city']
 		widgets = {
 			'description': forms.Textarea(attrs={'cols': 30 , 'rows': 10})
 		}
