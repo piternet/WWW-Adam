@@ -38,7 +38,8 @@ class CommentForm(forms.ModelForm):
 class ProfileForm(forms.ModelForm):
 	class Meta:
 		model = Profile
-		fields = ['description', 'avatar', 'city']
+		fields = ['description', 'avatar', 'city', 'birth_date']
 		widgets = {
-			'description': forms.Textarea(attrs={'cols': 30 , 'rows': 10})
+			'description': forms.Textarea(attrs={'cols': 30 , 'rows': 10}),
+			'birth_date': forms.SelectDateWidget(years=range(1900,2020))
 		}

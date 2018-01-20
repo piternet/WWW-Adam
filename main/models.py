@@ -40,3 +40,4 @@ class Profile(models.Model):
 	description = models.CharField(max_length= 300, blank=True, default='')
 	avatar = models.ImageField(upload_to='main/static/main/imgs/', default='', blank=True)
 	city = models.CharField(max_length=100, blank=True, default='')
+	birth_date = models.DateField(blank=True, null=True)
