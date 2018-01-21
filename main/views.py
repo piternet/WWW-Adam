@@ -65,7 +65,10 @@ def register(request):
 @login_required(login_url='/login/')
 def user_info(request, user):
 	users = User.objects.get(username=user)
-	profile = Profile.objects.all() #nie wiem jak pobrac jeden gdzie user=user
+	try:
+		profile = Profile.objects.get(user=users) #nie wiem jak pobrac jeden gdzie user=user
+	except Profile.DoesNotExist:
+		profile = None
 	context =  {'users':users, 'user':user, 'profile':profile}
 	return render(request, 'main/userinfo.html',context)
 
