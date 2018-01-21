@@ -15,5 +15,14 @@
     <li>Nazwisko: {{users.last_name}}</li>
     <li>Email: {{users.email}}</li>
 </ul>
-
+{% for a in profile %}
+{% if a.user_id == users.id %}
+<ul>
+    <img src='{{ a.avatar.url|slice:"4:" }}'>
+    <li>Opis: {{a.description}}</li>
+    <li>Miasto: {{a.city}}</li>
+    <li>Data urodzenia: {{a.birth_date}}</li>
+</ul>
+{% endif %}
+{% endfor %}
 {% endblock %}

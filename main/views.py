@@ -65,7 +65,8 @@ def register(request):
 @login_required(login_url='/login/')
 def user_info(request, user):
 	users = User.objects.get(username=user)
-	context =  {'users':users, 'user':user}
+	profile = Profile.objects.all() #nie wiem jak pobrac jeden gdzie user=user
+	context =  {'users':users, 'user':user, 'profile':profile}
 	return render(request, 'main/userinfo.html',context)
 
 @login_required(login_url='/login/')
