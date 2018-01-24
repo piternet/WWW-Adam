@@ -92,7 +92,7 @@ def add_new_comment(request, id):
 @login_required(login_url='/login/?failed=1')
 def add_new_post(request):
 	if request.method == 'POST':
-		form = PostForm(request.POST)
+		form = PostForm(request.POST, request.FILES)
 		if form.is_valid():
 			tags = form.cleaned_data['tag']
 			post = form.save(commit=False)
@@ -136,9 +136,10 @@ def add_new_tag(request):
 def edit_post(request, id):
 	post = Post.objects.get(id=int(id))
 	if request.method == 'POST':
-		form = PostForm(request.POST)
+		form = PostForm(request.POST, request.FILES)
 		if form.is_valid():
 			post.title = form.cleaned_data['title']
+			post.photo = form.cleaned_data['photo']
 			post.content = form.cleaned_data['content']
 			tag = form.cleaned_data['tag']
 			post.tag.clear()
@@ -153,7 +154,8 @@ def edit_post(request, id):
 			'tag': post.tag.all()
 		})
 		context = {
-			'form': form
+			'form': form,
+			'post': post
 		}
 		return render(request, 'main/editpost.html', context)
 

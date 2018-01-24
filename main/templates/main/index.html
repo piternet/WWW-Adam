@@ -23,6 +23,14 @@
                 {% if post.content|length > 200 %}
                 <a href="{% url 'one_post' post.id %}">Czytaj dalej</a>
                 {% endif %}
+				<tr>
+                    <td></td>
+                    {% if post.photo == '' %}
+                    <td> </td>
+                    {% else %}
+                    <td><img src='{{ post.photo.url|slice:"4:" }}' width="100" height="100"></td>
+                    {% endif %}
+                </tr>
 				<p> Tagi: 
 					{% for t in post.tag.all %}
 						<a href="/bytag/{{ t.name|slice:'1:' }}">{{t.name}} </a>

@@ -16,6 +16,7 @@ class Post(models.Model):
 	publish_date = models.DateField()
 	user = models.ForeignKey(User)
 	tag = models.ManyToManyField(Tag)
+	photo = models.ImageField(upload_to='main/static/main/imgs/', default='', blank=True)
 
 	def __str__(self):
 		return "Tytul: " + self.title + ", Zawartosc: " \
