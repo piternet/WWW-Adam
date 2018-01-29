@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
 from .models import Post, Tag, Comment, Profile
-from .forms import PostForm, CommentForm, TagForm, ProfileForm
+from .forms import PostForm, CommentForm, TagForm, ProfileForm, MessageForm
 from datetime import datetime
 from django.core.paginator import Paginator, PageNotAnInteger
 from adamsite.settings import POSTS_PER_PAGE
@@ -202,7 +202,7 @@ def send_message(request):
 			message.save()
 			message.message_date = datetime.now()
 			message.save()
-			message.recipient.add(recipient)
+			message.recipient.add(*recipient)
 			message.save()
 			return HttpResponseRedirect('/')
 	else:
