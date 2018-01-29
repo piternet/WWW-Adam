@@ -1,0 +1,212 @@
+1517257255284	geckodriver	INFO	geckodriver 0.19.1
+1517257255288	geckodriver	INFO	Listening on 127.0.0.1:43089
+1517257256407	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.fDwIuUdIwrVh"
+1517257256988	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1517257258548	Marionette	INFO	Listening on port 36741
+1517257258643	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517257258704	Marionette	DEBUG	Register listener.js for window 2147483649
+1517257337217	geckodriver	INFO	geckodriver 0.19.1
+1517257337227	geckodriver	INFO	Listening on 127.0.0.1:44869
+1517257338341	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.B3KFZMuQzxSi"
+1517257338744	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1517257340088	Marionette	INFO	Listening on port 40469
+1517257340159	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517257340222	Marionette	DEBUG	Register listener.js for window 2147483649
+*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping
+1517257357132	geckodriver	INFO	geckodriver 0.19.1
+1517257357134	geckodriver	INFO	Listening on 127.0.0.1:40991
+1517257358249	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.fG5RLfD9H0hs"
+1517257358696	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1517257360010	Marionette	INFO	Listening on port 39999
+1517257360077	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517257360152	Marionette	DEBUG	Register listener.js for window 2147483649
+1517257360191	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1517257360299	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1517257360300	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1517257360311	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/"
+1517257360747	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/"
+console.warn: LoginRecipes: getRecipes: falling back to a synchronous message for: http://127.0.0.1:8000
+console.warn: nsLoginManager: searchLogins: `formSubmitURL` or `httpRealm` is recommended
+
+(/usr/lib/firefox/firefox:19068): dconf-WARNING **: Unable to open /var/lib/flatpak/exports/share/dconf/profile/user: Permission denied
+console.warn: LoginRecipes: getRecipes: falling back to a synchronous message for: http://127.0.0.1:8000
+console.warn: nsLoginManager: searchLogins: `formSubmitURL` or `httpRealm` is recommended
+console.warn: LoginRecipes: getRecipes: falling back to a synchronous message for: http://127.0.0.1:8000
+console.warn: nsLoginManager: searchLogins: `formSubmitURL` or `httpRealm` is recommended
+console.warn: LoginRecipes: getRecipes: falling back to a synchronous message for: http://127.0.0.1:8000
+console.warn: nsLoginManager: searchLogins: `formSubmitURL` or `httpRealm` is recommended
+1517257587499	geckodriver	INFO	geckodriver 0.19.1
+1517257587502	geckodriver	INFO	Listening on 127.0.0.1:48901
+1517257588607	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.48MQZQbNVaR9"
+1517257589026	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1517257590343	Marionette	INFO	Listening on port 39297
+1517257590428	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517257590485	Marionette	DEBUG	Register listener.js for window 2147483649
+1517257590535	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1517257590580	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1517257590581	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1517257590596	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/"
+1517257591833	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/"
+1517257591902	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/"
+1517257591931	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/"
+1517257591932	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/"
+1517257591958	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257591983	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+1517257592147	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/register/"
+1517257592282	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/register/"
+1517257592283	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/register/"
+1517257592305	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257592323	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+1517257727132	geckodriver	INFO	geckodriver 0.19.1
+1517257727135	geckodriver	INFO	Listening on 127.0.0.1:42727
+1517257728244	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.5a6udDOtF19n"
+1517257728659	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1517257729973	Marionette	INFO	Listening on port 36433
+1517257730053	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517257730122	Marionette	DEBUG	Register listener.js for window 2147483649
+1517257730165	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1517257730226	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1517257730226	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1517257730238	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/"
+1517257730677	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/"
+1517257730732	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/"
+1517257730763	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/"
+1517257730763	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/"
+1517257730793	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257730807	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+1517257730970	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/register/"
+1517257731037	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/register/"
+1517257731038	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/register/"
+1517257731051	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257731064	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+[Child 19576, Chrome_ChildThread] WARNING: pipe error (16): Connection reset by peer: file /build/firefox-zBfzfG/firefox-57.0.4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1517257792131	geckodriver	INFO	geckodriver 0.19.1
+1517257792135	geckodriver	INFO	Listening on 127.0.0.1:37247
+1517257793251	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.IZm0MZsocSl0"
+1517257793647	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1517257795004	Marionette	INFO	Listening on port 44697
+1517257795068	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517257795132	Marionette	DEBUG	Register listener.js for window 2147483649
+1517257795169	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1517257795210	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1517257795211	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1517257795217	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/"
+1517257795639	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/"
+1517257795707	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/"
+1517257795731	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/"
+1517257795732	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/"
+1517257795752	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257795769	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+1517257795917	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/register/"
+1517257795993	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/register/"
+1517257795994	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/register/"
+1517257796011	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257796047	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+[Child 19739, Chrome_ChildThread] WARNING: pipe error (16): Connection reset by peer: file /build/firefox-zBfzfG/firefox-57.0.4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 19739, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-zBfzfG/firefox-57.0.4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1517257804329	geckodriver	INFO	geckodriver 0.19.1
+1517257804332	geckodriver	INFO	Listening on 127.0.0.1:58805
+1517257805442	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.DFsbYyl9MHQx"
+1517257805846	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1517257807157	Marionette	INFO	Listening on port 42701
+1517257807253	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517257807324	Marionette	DEBUG	Register listener.js for window 2147483649
+1517257807359	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1517257807417	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1517257807417	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1517257807430	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/"
+1517257807847	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/"
+1517257807928	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/"
+1517257807959	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/"
+1517257807960	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/"
+1517257807987	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257808000	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+1517257808167	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/register/"
+1517257808226	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/register/"
+1517257808227	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/register/"
+1517257808250	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257808264	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+[Child 19891, Chrome_ChildThread] WARNING: pipe error (17): Connection reset by peer: file /build/firefox-zBfzfG/firefox-57.0.4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 19891, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-zBfzfG/firefox-57.0.4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1517257844369	geckodriver	INFO	geckodriver 0.19.1
+1517257844372	geckodriver	INFO	Listening on 127.0.0.1:44639
+1517257845486	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.xckr6t8jLW6A"
+1517257845883	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1517257847208	Marionette	INFO	Listening on port 43465
+1517257847303	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517257847370	Marionette	DEBUG	Register listener.js for window 2147483649
+1517257847404	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1517257847475	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1517257847475	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1517257847488	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/"
+1517257847890	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/"
+1517257847969	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/"
+1517257847991	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/"
+1517257847992	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/"
+1517257848020	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257848034	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+1517257848186	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/register/"
+1517257848249	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/register/"
+1517257848250	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/register/"
+1517257848269	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257848280	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+[Child 20050, Chrome_ChildThread] WARNING: pipe error (16): Connection reset by peer: file /build/firefox-zBfzfG/firefox-57.0.4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 20050, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-zBfzfG/firefox-57.0.4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1517257867126	geckodriver	INFO	geckodriver 0.19.1
+1517257867132	geckodriver	INFO	Listening on 127.0.0.1:49747
+1517257868252	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.U8Ig6iqd5COx"
+1517257868679	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1517257870033	Marionette	INFO	Listening on port 43937
+1517257870069	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517257870120	Marionette	DEBUG	Register listener.js for window 2147483649
+1517257870182	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1517257870226	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1517257870226	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1517257870238	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/"
+1517257870682	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/"
+1517257870755	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/"
+1517257870786	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/"
+1517257870786	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/"
+1517257870816	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257870829	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+1517257870989	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/register/"
+1517257871067	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/register/"
+1517257871068	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/register/"
+1517257871086	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257871100	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+[Child 20221, Chrome_ChildThread] WARNING: pipe error (17): Connection reset by peer: file /build/firefox-zBfzfG/firefox-57.0.4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 20221, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-zBfzfG/firefox-57.0.4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1517257986319	geckodriver	INFO	geckodriver 0.19.1
+1517257986321	geckodriver	INFO	Listening on 127.0.0.1:43099
+1517257986485	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.4F7TxQBvrzav"
+1517257986899	Marionette	INFO	Enabled via --marionette
+JavaScript error: jar:file:///usr/lib/firefox/omni.ja!/components/addonsInfo.js, line 91: SyntaxError: "0"-prefixed octal literals and octal escape sequences are deprecated; for octal literals use the "0o" prefix instead
+1517257988213	Marionette	INFO	Listening on port 42973
+1517257988307	Marionette	WARN	TLS certificate errors will be ignored for this session
+1517257988370	Marionette	DEBUG	Register listener.js for window 2147483649
+1517257988415	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1517257988469	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1517257988470	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1517257988485	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/"
+1517257988932	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/"
+1517257988998	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/"
+1517257989021	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/"
+1517257989022	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/"
+1517257989059	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257989071	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+1517257989212	Marionette	DEBUG	Received DOM event "beforeunload" for "http://127.0.0.1:8000/register/"
+1517257989288	Marionette	DEBUG	Received DOM event "pagehide" for "http://127.0.0.1:8000/register/"
+1517257989289	Marionette	DEBUG	Received DOM event "unload" for "http://127.0.0.1:8000/register/"
+1517257989312	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://127.0.0.1:8000/register/"
+1517257989325	Marionette	DEBUG	Received DOM event "pageshow" for "http://127.0.0.1:8000/register/"
+[Child 20407, Chrome_ChildThread] WARNING: pipe error (16): Connection reset by peer: file /build/firefox-zBfzfG/firefox-57.0.4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 20407, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-zBfzfG/firefox-57.0.4/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
