@@ -202,7 +202,7 @@ def send_message(request):
 			message.save()
 			message.message_date = datetime.now()
 			message.save()
-			message.recipient.add(*recipient)
+			message.recipient = recipient
 			message.save()
 			return HttpResponseRedirect('/')
 	else:
