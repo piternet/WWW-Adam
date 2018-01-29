@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, Tag, Comment, Profile
+from .models import Post, Tag, Comment, Profile, Message
 
 class PostForm(forms.ModelForm):
 	class Meta:
@@ -42,4 +42,16 @@ class ProfileForm(forms.ModelForm):
 		widgets = {
 			'description': forms.Textarea(attrs={'cols': 30 , 'rows': 10}),
 			'birth_date': forms.SelectDateWidget(years=range(1900,2020))
+		}
+
+class MessageForm(forms.ModelForm):
+	class Meta:
+		model = Message
+		fields = ['title', 'content', 'recipient', 'sender']
+		widgets = {
+			'content': forms.Textarea(attrs={'cols': 30 , 'rows': 20})
+		}
+		labels = {
+			'title': 'Tytul',
+			'content': 'Zawartosc'
 		}
