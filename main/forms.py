@@ -47,7 +47,7 @@ class ProfileForm(forms.ModelForm):
 class MessageForm(forms.ModelForm):
 	class Meta:
 		model = Message
-		fields = ['title', 'content', 'recipient', 'sender']
+		fields = ['title', 'content', 'recipient']
 		widgets = {
 			'content': forms.Textarea(attrs={'cols': 30 , 'rows': 20})
 		}

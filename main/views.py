@@ -189,3 +189,25 @@ def create_profile(sender, **kwargs):
 		profile.save()
 
 post_save.connect(create_profile, sender=User)
+
+
+@login_required(login_url='/login/?failed=1')
+def send_message(request):
+	if request.method == 'POST':
+		form = MessageForm(request.POST)
+		if form.is_valid():
+			recipient = form.cleaned_data['recipient']
+			message = form.save(commit=False)
+			message.sender = request.user
+			message.save()
+			message.message_date = datetime.now()
+			message.save()
+			message.recipient.add(recipient)
+			message.save()
+			return HttpResponseRedirect('/')
+	else:
+		form = MessageForm()
+		context = {
+			"form": form
+		}
+		return render(request, 'main/sendmessage.html', context)
