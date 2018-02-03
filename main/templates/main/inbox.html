@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+
+{% block head %}
+	<title>Poczta przychodzaca</title>
+{% endblock %}
+
+{% block header %}
+	<h1>Poczta przychodzaca</h1>
+{% endblock %}
+
+{% block content %}
+<div>
+    {% for mes in messages %}
+
+            <a>{{mes.message_date}} {{mes.title}} {{mes.sender}} {{mes.recipient}}</a>
+            <br>
+
+    {% endfor %}
+</div>
+
+{% endblock %}

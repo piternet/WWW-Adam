@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
-from .models import Post, Tag, Comment, Profile
+from .models import Post, Tag, Comment, Profile, Message
 from .forms import PostForm, CommentForm, TagForm, ProfileForm, MessageForm
 from datetime import datetime
 from django.core.paginator import Paginator, PageNotAnInteger
@@ -211,3 +211,9 @@ def send_message(request):
 			"form": form
 		}
 		return render(request, 'main/sendmessage.html', context)
+
+@login_required(login_url='/login/')
+def inbox(request):
+	messages = Message.objects.all()
+	context =  {'messages':messages}
+	return render(request, 'main/inbox.html',context)

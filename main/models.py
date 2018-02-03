@@ -49,6 +49,7 @@ class Message(models.Model):
 	title = models.CharField(max_length= 100, blank=True, default='')
 	content = models.CharField(max_length=300, blank=True, default='')
 	message_date = models.DateField(null=True)
+	readed = models.BooleanField(default=False)
 
 	def __str__(self):
 		return self.title

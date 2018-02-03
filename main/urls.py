@@ -20,4 +20,5 @@ urlpatterns = [
 	url(r'^logout/', logout, name='logout'),
 	url(r'^edit_profile/$', views.edit_profile, name='edit_profile'),
 	url(r'^sendmessage/$', views.send_message, name="sendmessage"),
+	url(r'^inbox/$', views.inbox, name="inbox"),
 ]
