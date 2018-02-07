@@ -1,6 +1,5 @@
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib.auth.views import login, logout
-
 from . import views
 
 urlpatterns = [
@@ -21,4 +20,5 @@ urlpatterns = [
 	url(r'^edit_profile/$', views.edit_profile, name='edit_profile'),
 	url(r'^sendmessage/$', views.send_message, name="sendmessage"),
 	url(r'^inbox/$', views.inbox, name="inbox"),
+	url(r'^api/', include('api.urls')),
 ]

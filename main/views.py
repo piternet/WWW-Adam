@@ -12,6 +12,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.db.models.signals import post_save
 
+
 def index(request):
 	posts = Post.objects.all()
 	comments = Comment.objects.all()
