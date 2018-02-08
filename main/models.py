@@ -48,7 +48,7 @@ class Message(models.Model):
 	sender = models.ForeignKey(User, related_name='sender')
 	title = models.CharField(max_length= 100, blank=True, default='')
 	content = models.CharField(max_length=300, blank=True, default='')
-	message_date = models.DateField(null=True)
+	message_date = models.DateTimeField(null=True)
 	readed = models.BooleanField(default=False)
 
 	def __str__(self):
