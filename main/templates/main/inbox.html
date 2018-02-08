@@ -10,11 +10,14 @@
 
 {% block content %}
 <div>
+    <a>info: if nie dzialal po dla user.username i mes.recipient</a><br>
+    {{logindate}}
     {% for mes in messages %}
 
-            <a>{{mes.message_date}} {{mes.title}} {{mes.sender}} {{mes.recipient}}</a>
+        {% if mes.recipient.id == user.id   %}
+            <h3>{{mes.message_date}} {{mes.title}} {{mes.sender}} {{mes.recipient.id}}</h3>
             <br>
-
+        {% endif %}
     {% endfor %}
 </div>
 

@@ -200,9 +200,7 @@ def send_message(request):
 			recipient = form.cleaned_data['recipient']
 			message = form.save(commit=False)
 			message.sender = request.user
-			message.save()
 			message.message_date = datetime.now()
-			message.save()
 			message.recipient = recipient
 			message.save()
 			return HttpResponseRedirect('/')
@@ -215,6 +213,10 @@ def send_message(request):
 
 @login_required(login_url='/login/')
 def inbox(request):
+	print (request.user.id, "nie wiem jak zrobic filtrowanie message.objects.all po jednym uzytkowniku")
 	messages = Message.objects.all()
-	context =  {'messages':messages}
+	u = User.objects.get(pk=request.user.id)
+	logindate = u.last_login
+	context =  {'messages':messages,
+				'logindate':logindate}
 	return render(request, 'main/inbox.html',context)
