@@ -11,10 +11,9 @@
 {% block content %}
 <div>
     <a>info: if nie dzialal po dla user.username i mes.recipient</a><br>
-    {{logindate}}
+    <a>ostatnie logowanie bylo: {{logindate}}</a>
     {% for mes in messages %}
-
-        {% if mes.recipient.id == user.id   %}
+        {% if mes.recipient.id == user.id   and mes.message_date > logindate %}
             <h3>{{mes.message_date}} {{mes.title}} {{mes.sender}} {{mes.recipient.id}}</h3>
             <br>
         {% endif %}
