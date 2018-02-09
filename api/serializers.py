@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from main.models import Post
+from main.models import Post, Message
 from rest_framework import serializers
 
 class UserSerializer(serializers.ModelSerializer):
@@ -15,4 +15,9 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
         return user
 
-        
+class MessageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Message
+        fields = ('id', 'recipient', 'sender', 'title', 'content', 'message_date', 'readed')
+
