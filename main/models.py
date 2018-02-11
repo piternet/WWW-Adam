@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from adamsite.settings import STATIC_URL
-
+from datetime import datetime
 
 class Tag(models.Model):
 	name = models.CharField(max_length=200, blank=True, default='', unique=True)
@@ -25,6 +25,16 @@ class Post(models.Model):
 
 	class Meta:
 		ordering = ['-publish_date', 'title']
+
+	def get_likes(self):
+		likes = Like.objects.filter(post=self)
+		return likes
+
+	def count_likes(self):
+		return len(self.get_likes())
+
+	def user_likes(self):
+		return [like.user for like in self.get_likes()]
 
 
 class Comment(models.Model):
@@ -53,3 +63,11 @@ class Message(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class Like(models.Model):
+	user = models.ForeignKey(User)
+	post = models.ForeignKey(Post)
+	date = models.DateField(default=datetime.now())
+
+	class Meta:
+		unique_together = ('user', 'post')

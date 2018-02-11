@@ -1,17 +1,17 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
-from .models import Post, Tag, Comment, Profile, Message
-from .forms import PostForm, CommentForm, TagForm, ProfileForm, MessageForm
+from .models import Post, Tag, Comment, Profile, Message, Like
+from .forms import PostForm, CommentForm, TagForm, ProfileForm, MessageForm, ContactForm
 from datetime import datetime
 from django.core.paginator import Paginator, PageNotAnInteger
-from adamsite.settings import POSTS_PER_PAGE
+from adamsite.settings import POSTS_PER_PAGE, EMAIL_SEND
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import DeleteView
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.db.models.signals import post_save
-
+from django.core.mail import send_mail
 
 def index(request):
 	posts = Post.objects.all()
@@ -183,6 +183,24 @@ def edit_profile(request):
 		}
 		return render(request, 'main/editprofile.html', context)
 
+@login_required(login_url='/login/?failed=1')
+def contact(request):
+	if request.method == 'POST':
+		form = ContactForm(request.POST)
+		if form.is_valid():
+			title = form.cleaned_data['title']
+			email_from = form.cleaned_data['email']
+			content = form.cleaned_data['content']
+			send_mail(title, content, email_from, [EMAIL_SEND])
+			return redirect('index')
+	form = ContactForm(initial={
+		'email': request.user.email
+	})
+	context = {
+		'form': form
+	}
+	return render(request, 'main/contact.html', context)
+
 def create_profile(sender, **kwargs):
 	user = kwargs['instance']
 	if kwargs['created']:
@@ -214,9 +232,20 @@ def send_message(request):
 @login_required(login_url='/login/')
 def inbox(request):
 	print (request.user.id, "nie wiem jak zrobic filtrowanie message.objects.all po jednym uzytkowniku")
-	messages = Message.objects.all()
 	u = User.objects.get(pk=request.user.id)
 	logindate = u.last_login
+	messages = Message.objects.filter(recipient=request.user, message_date__gte=logindate)
+	
 	context =  {'messages':messages,
 				'logindate':logindate}
 	return render(request, 'main/inbox.html',context)
+
+def add_like(request, id, delete=0):
+	post= Post.objects.get(id=int(id))
+	if delete:
+		like = Like.objects.get(user=request.user, post=post)
+		like.delete()
+	else:
+		like = Like(user=request.user, post=post)
+		like.save()
+	return redirect('index')

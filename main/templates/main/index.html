@@ -37,7 +37,16 @@
 						<a>, </a>
 					{% endfor %}
 				</p>
+				<p>
+					{{ post.count_likes }} osób lubi to | 
+					{% if user not in post.user_likes %}
+						<a href="{% url 'add_like' post.id %}">Lubię to</a>
+					{% else %}
+						<a href="{% url 'add_like' post.id 1 %}">Nie lubię tego</a>
+					{% endif %}
+				</p>
 			</div>
+
         <div><a href="{% url 'add_new_comment' post.id %}">Komentarz (dodaj)</a>
 			{% if post.user.username == user.username %}
 				<a href="/remove_post/{{post.id}}">  Usun post</a>

@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block head %}
+	<title>Formularz kontaktowy</title>
+{% endblock %}
+
+{% block header %}
+	<h2> Formularz kontaktowy</h2>
+{% endblock %}
+
+{% block content %}
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Wyślij</button>
+	</form>
+{% endblock %}

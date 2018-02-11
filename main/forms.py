@@ -55,3 +55,8 @@ class MessageForm(forms.ModelForm):
 			'title': 'Tytul',
 			'content': 'Zawartosc'
 		}
+
+class ContactForm(forms.Form):
+	title = forms.CharField(label="Tytuł", max_length=100)
+	email = forms.EmailField(label="Email")
+	content = forms.CharField(label="Treść", max_length=10000, widget=forms.Textarea(attrs={'cols': 30 , 'rows': 20}))

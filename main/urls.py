@@ -20,5 +20,7 @@ urlpatterns = [
 	url(r'^edit_profile/$', views.edit_profile, name='edit_profile'),
 	url(r'^sendmessage/$', views.send_message, name="sendmessage"),
 	url(r'^inbox/$', views.inbox, name="inbox"),
+	url(r'^contact/$', views.contact, name="contact"),
+	url(r'^add_like/(?P<id>\d+)/(?P<delete>\d+)?$', views.add_like, name="add_like"),
 	url(r'^api/', include('api.urls')),
 ]
