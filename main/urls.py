@@ -23,4 +23,5 @@ urlpatterns = [
 	url(r'^contact/$', views.contact, name="contact"),
 	url(r'^add_like/(?P<id>\d+)/(?P<delete>\d+)?$', views.add_like, name="add_like"),
 	url(r'^api/', include('api.urls')),
+	url(r'^airstatus/', include('airstatus.urls'))
 ]
