@@ -42,7 +42,8 @@ def aircity(request, country, **kwargs):
     if request.method == "POST":
         a = request.POST['drop1']
         print(a)
-        return HttpResponseRedirect(a + "?name=" + countryname)
+        """return HttpResponseRedirect(a + "?name=" + countryname)"""
+        return redirect(a+"/?name="+countryname)
     else:
         cityonly = []
         for ct in results:
@@ -68,8 +69,13 @@ def airlocation(request, country, city, **kwargs):
         return HttpResponseRedirect('asdf')
     else:
         locationonly = []
+        for lo in results:
+            for k, v in lo.items():
+                if k == 'location':
+                    locationonly.append(v)
         context = {
             'locationonly': locationonly,
-            'countryname': countryname
+            'countryname': countryname,
+            'city': city
         }
-        return render(request, 'main/air_city.html', context)
+        return render(request, 'main/air_location.html', context)

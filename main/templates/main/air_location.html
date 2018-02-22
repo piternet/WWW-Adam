@@ -1,11 +1,11 @@
 {% extends 'main/base.html' %}
 
 {% block head %}
-	<title>Wybierz miejsce w miescie: {{cityname}}</title>
+	<title>Wybierz dzielnice w miescie: {{city}} ({{countryname}})</title>
 {% endblock %}
 
 {% block header %}
-	<h2>Wybierz miejsce w miescie: {{cityname}}</h2>
+	<h2>Wybierz dzielnice w miescie: {{city}} ({{countryname}})</h2>
 {% endblock %}
 
 {% block content %}
@@ -13,7 +13,7 @@
 <form method = "post">
 {% csrf_token %}
 <select name = "drop1" >
-	{% for m in cityonly %}
+	{% for m in locationonly %}
                     <option value={{m}}>{{m}}</option>
 
 	{% endfor %}
