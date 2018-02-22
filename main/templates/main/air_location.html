@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block head %}
+	<title>Wybierz miejsce w miescie: {{cityname}}</title>
+{% endblock %}
+
+{% block header %}
+	<h2>Wybierz miejsce w miescie: {{cityname}}</h2>
+{% endblock %}
+
+{% block content %}
+
+<form method = "post">
+{% csrf_token %}
+<select name = "drop1" >
+	{% for m in cityonly %}
+                    <option value={{m}}>{{m}}</option>
+
+	{% endfor %}
+</select>
+<input  type = "submit" value="Submit">
+</form>
+
+{% endblock %}

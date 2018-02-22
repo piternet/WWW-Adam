@@ -21,7 +21,6 @@ def aircountry(request):
             for k, v in kr.items():
                 if k == 'name' and v == a:
                     countrycode = kr['code']
-        """return HttpResponseRedirect(countrycode, a)"""
         return redirect('%s%s?name=' % (reverse('aircountry'),countrycode)+a)
     else:
         countryonly = []
@@ -42,11 +41,8 @@ def aircity(request, country, **kwargs):
     results = json.loads(jdata)['results']
     if request.method == "POST":
         a = request.POST['drop1']
-        for ct in results:
-            for k, v in ct.items():
-                if k == 'city' and v == a:
-                    citycode = ct['code']
-        return HttpResponseRedirect(citycode)
+        print(a)
+        return HttpResponseRedirect(a + "?name=" + countryname)
     else:
         cityonly = []
         for ct in results:
@@ -56,6 +52,24 @@ def aircity(request, country, **kwargs):
         context = {
             'cityonly': cityonly,
             'countryname': countryname
+        }
+        return render(request, 'main/air_city.html', context)
 
+
+def airlocation(request, country, city, **kwargs):
+    countryname = request.GET['name']
+    oururl = "https://api.openaq.org/v1/latest"
+    r = requests.get(oururl + "?country=" + country + "&city=" + city)
+    jdata = r.text
+    results = json.loads(jdata)['results']
+    if request.method == "POST":
+        a = request.POST['drop1']
+        print(a)
+        return HttpResponseRedirect('asdf')
+    else:
+        locationonly = []
+        context = {
+            'locationonly': locationonly,
+            'countryname': countryname
         }
         return render(request, 'main/air_city.html', context)
