@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block head %}
+	<title>Pomiary dla: {{countryname}}, {{city}}, {{location}}</title>
+{% endblock %}
+
+{% block header %}
+	<h2>Pomiary dla : {{countryname}}, {{city}}, {{location}}</h2>
+{% endblock %}
+
+{% block content %}
+{% for a in wyn %}
+    <a>Wskaznik: {{a.parameter}}: {{a.value}} {{a.unit}}.   Ostatni odczyt: {{a.lastUpdated|slice:":10"}}</a>
+    </BR>
+{% endfor %}
+
+
+{% endblock %}

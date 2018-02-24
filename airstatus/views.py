@@ -42,7 +42,6 @@ def aircity(request, country, **kwargs):
     if request.method == "POST":
         a = request.POST['drop1']
         print(a)
-        """return HttpResponseRedirect(a + "?name=" + countryname)"""
         return redirect(a+"/?name="+countryname)
     else:
         cityonly = []
@@ -65,8 +64,7 @@ def airlocation(request, country, city, **kwargs):
     results = json.loads(jdata)['results']
     if request.method == "POST":
         a = request.POST['drop1']
-        print(a)
-        return HttpResponseRedirect('asdf')
+        return redirect(a + "/?name=" + countryname)
     else:
         locationonly = []
         for lo in results:
@@ -79,3 +77,23 @@ def airlocation(request, country, city, **kwargs):
             'city': city
         }
         return render(request, 'main/air_location.html', context)
+
+def latestmeasure(request, country, city, location, **kwargs):
+    countryname = request.GET['name']
+    oururl = "https://api.openaq.org/v1/latest"
+    r = requests.get(oururl + "?country=" + country + "&city=" + city + "&location=" + location)
+    jdata = r.text
+    results = json.loads(jdata)['results'][0]
+
+    for a, b in results.items():
+        if a == "measurements":
+            wyn = b
+    print(wyn[0])
+
+    context = {
+        'wyn': wyn,
+        'countryname': countryname,
+        'city': city,
+        'location': location
+    }
+    return render(request, 'main/air_latestmeasure.html', context)
