@@ -14,7 +14,7 @@
 {% csrf_token %}
 <select name = "drop1" >
 	{% for m in countryonly %}
-                    <option value={{m}}>{{m}}</option>
+                    <option value="{{m}}">{{m}}</option>
 
 	{% endfor %}
 </select>

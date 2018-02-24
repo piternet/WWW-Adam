@@ -17,6 +17,7 @@ def aircountry(request):
     results = json.loads(jdata)['results']
     if request.method == "POST":
         a = request.POST['drop1']
+        print ('drop1 to ' , a)
         for kr in results:
             for k, v in kr.items():
                 if k == 'name' and v == a:
@@ -41,6 +42,7 @@ def aircity(request, country, **kwargs):
     results = json.loads(jdata)['results']
     if request.method == "POST":
         a = request.POST['drop1']
+        print('drop1 to ', a)
         print(a)
         return redirect(a+"/?name="+countryname)
     else:
@@ -64,6 +66,7 @@ def airlocation(request, country, city, **kwargs):
     results = json.loads(jdata)['results']
     if request.method == "POST":
         a = request.POST['drop1']
+        print('drop1 to ', a)
         return redirect(a + "/?name=" + countryname)
     else:
         locationonly = []
