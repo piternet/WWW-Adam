@@ -43,7 +43,6 @@ def aircity(request, country, **kwargs):
     if request.method == "POST":
         a = request.POST['drop1']
         print('drop1 to ', a)
-        print(a)
         return redirect(a+"/?name="+countryname)
     else:
         cityonly = []
@@ -59,10 +58,12 @@ def aircity(request, country, **kwargs):
 
 
 def airlocation(request, country, city, **kwargs):
+    print("jestem w airlocation")
     countryname = request.GET['name']
     oururl = "https://api.openaq.org/v1/latest"
     r = requests.get(oururl + "?country=" + country + "&city=" + city)
     jdata = r.text
+    print(jdata)
     results = json.loads(jdata)['results']
     if request.method == "POST":
         a = request.POST['drop1']
